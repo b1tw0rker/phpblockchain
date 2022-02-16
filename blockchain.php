@@ -20,7 +20,7 @@ class BlockChain
      */
     private function createGenesisBlock()
     {
-        return new Block(0, strtotime("2017-01-01"), "Genesis Block");
+        return new Block(0, strtotime("2022-02-16"), "Genesis Block");
     }
 
     /**
@@ -28,7 +28,7 @@ class BlockChain
      */
     public function getLastBlock()
     {
-        return $this->chain[count($this->chain)-1];
+        return $this->chain[count($this->chain) - 1];
     }
 
     /**
@@ -51,7 +51,7 @@ class BlockChain
             $block->hash = $block->calculateHash();
         }
 
-        echo "Block mined: ".$block->hash."\n";
+        echo "Block mined: " . $block->hash . "\n";
     }
 
     /**
@@ -61,7 +61,7 @@ class BlockChain
     {
         for ($i = 1; $i < count($this->chain); $i++) {
             $currentBlock = $this->chain[$i];
-            $previousBlock = $this->chain[$i-1];
+            $previousBlock = $this->chain[$i - 1];
 
             if ($currentBlock->hash != $currentBlock->calculateHash()) {
                 return false;
